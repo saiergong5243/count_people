@@ -208,7 +208,7 @@ def load_network(network_folder):
     labels = open(labelspath).read().strip().split("\n")
     network = cv2.dnn.readNetFromDarknet(configpath, weightspath)
     names = network.getLayerNames()
-    names = [names[i[0] - 1] for i in network.getUnconnectedOutLayers()]
+    names = [names[i - 1] for i in network.getUnconnectedOutLayers()]
     return network, names, labels
 
 
